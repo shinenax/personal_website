@@ -7,7 +7,9 @@
 
 body {
     font-family: 'Arial', sans-serif;
-    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    background: url('girl.jpeg') center center/contain no-repeat,
+                linear-gradient(135deg, #ffffff 0%, #ffffff 100%);
+    background-size: auto 110%;
     min-height: 100vh;
     overflow-x: hidden;
 }
@@ -26,31 +28,39 @@ body {
     top: 50px;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 2.5rem;
+    font-family: 'Great Vibes', 'Dancing Script', cursive;
+    font-size: 4rem;
     color: #333;
     text-align: center;
-    font-weight: 300;
-    letter-spacing: 2px;
-    z-index: 2;
+    font-weight: 400;
+    letter-spacing: 1px;
+    z-index: 15;
+    text-shadow: 8px 8px 8px rgba(255, 255, 255, 1);
+    font-style: italic;
 }
 
-/* Central Character */
+/* Central Character Area */
 .center-character {
     position: relative;
     z-index: 10;
-    width: 300px;
-    height: 400px;
+    width: 200px;
+    height: 200px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.character-img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+/* Add subtle overlay to ensure objects remain visible */
+.container::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.1);
+    pointer-events: none;
+    z-index: 1;
 }
 
 /* Objects Container */
@@ -60,7 +70,7 @@ body {
     height: 100%;
     top: 0;
     left: 0;
-    z-index: 5;
+    z-index: 10;
 }
 
 /* Individual Objects */
@@ -70,75 +80,93 @@ body {
     height: 120px;
     cursor: pointer;
     transition: all 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background: rgba(255, 255, 255, 0.9);
     border-radius: 20px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    /* box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); */
     backdrop-filter: blur(10px);
+    overflow: hidden;
 }
 
 .object:hover {
     transform: scale(1.1) translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    /* box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2); */
+}
+
+.object:hover .object-label {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .object-img {
-    width: 60px;
-    height: 60px;
-    object-fit: contain;
-    margin-bottom: 8px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    z-index: 1;
 }
 
 .object-label {
-    font-size: 0.9rem;
-    color: #555;
-    font-weight: 500;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    font-size: 1.2rem;
+    color: rgb(0, 0, 0);
+    font-weight: 600;
     text-align: center;
     line-height: 1.2;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 8px;
+    border-radius: 0 0 20px 20px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    pointer-events: none;
+    font-family: 'Great Vibes', 'Typewriter';
+    z-index: 2;
 }
 
-/* Object Positioning */
+/* Object Positioning - Equal spacing around center */
 .field-hockey {
-    top: 20%;
-    left: 15%;
-}
-
-.work {
-    top: 15%;
-    right: 15%;
-}
-
-.snowboarding {
-    top: 45%;
-    left: 8%;
-}
-
-.volunteering {
-    top: 45%;
-    right: 8%;
-}
-
-.interests {
-    bottom: 25%;
+    top: 18%;
     left: 12%;
 }
 
-.links {
-    bottom: 25%;
+.work {
+    top: 18%;
     right: 12%;
 }
 
+.snowboarding {
+    top: 40%;
+    left: 5%;
+}
+
+.volunteering {
+    top: 40%;
+    right: 7%;
+}
+
+.interests {
+    bottom: 28%;
+    left: 8%;
+}
+
+.links {
+    bottom: 28%;
+    right: 8%;
+}
+
 .goals {
-    bottom: 15%;
-    left: 25%;
+    bottom: 12%;
+    left: 28%;
 }
 
 .academics {
-    bottom: 15%;
-    right: 25%;
+    bottom: 12%;
+    right: 28%;
 }
 
 /* Popup Styles */
@@ -197,22 +225,76 @@ body {
 }
 
 .popup-text {
-    font-size: 1.1rem;
+    font-family: 'Typewriter', 'Courier New', monospace;
+    font-size: 1rem;
     line-height: 1.6;
     color: #333;
     margin-top: 1rem;
 }
 
+.popup-text h3 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 1.8rem;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.popup-text ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.popup-text li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 8px;
+    font-family: 'Typewriter', 'Courier New', monospace;
+}
+
+.popup-text li:before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #2c3e50;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.popup-text strong {
+    color: #2c3e50;
+    font-weight: 700;
+}
+
+.popup-text ul.nested {
+    margin-top: 8px;
+    margin-left: 0;
+}
+
+.popup-text ul.nested li {
+    padding-left: 35px;
+    font-size: 0.95rem;
+    color: #555;
+}
+
+.popup-text ul.nested li:before {
+    content: "◦";
+    left: 15px;
+    color: #666;
+    font-size: 1rem;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .title {
-        font-size: 2rem;
+        font-size: 3rem;
         top: 30px;
     }
     
     .center-character {
-        width: 200px;
-        height: 280px;
+        width: 150px;
+        height: 150px;
     }
     
     .object {
@@ -221,8 +303,8 @@ body {
     }
     
     .object-img {
-        width: 40px;
-        height: 40px;
+        width: 100%;
+        height: 100%;
     }
     
     .object-label {
@@ -230,24 +312,24 @@ body {
     }
     
     /* Adjust positioning for mobile */
-    .field-hockey { top: 15%; left: 10%; }
-    .work { top: 10%; right: 10%; }
-    .snowboarding { top: 35%; left: 5%; }
-    .volunteering { top: 35%; right: 5%; }
-    .interests { bottom: 30%; left: 8%; }
-    .links { bottom: 30%; right: 8%; }
-    .goals { bottom: 15%; left: 20%; }
-    .academics { bottom: 15%; right: 20%; }
+    .field-hockey { top: 12%; left: 8%; }
+    .work { top: 12%; right: 8%; }
+    .snowboarding { top: 35%; left: 3%; }
+    .volunteering { top: 35%; right: 3%; }
+    .interests { bottom: 25%; left: 6%; }
+    .links { bottom: 25%; right: 6%; }
+    .goals { bottom: 10%; left: 22%; }
+    .academics { bottom: 10%; right: 22%; }
 }
 
 @media (max-width: 480px) {
     .title {
-        font-size: 1.5rem;
+        font-size: 2.5rem;
     }
     
     .center-character {
-        width: 150px;
-        height: 220px;
+        width: 100px;
+        height: 100px;
     }
     
     .object {
@@ -256,11 +338,21 @@ body {
     }
     
     .object-img {
-        width: 30px;
-        height: 30px;
+        width: 100%;
+        height: 100%;
     }
     
     .object-label {
         font-size: 0.7rem;
     }
+    
+    /* Adjust positioning for very small screens */
+    .field-hockey { top: 10%; left: 6%; }
+    .work { top: 10%; right: 6%; }
+    .snowboarding { top: 32%; left: 2%; }
+    .volunteering { top: 32%; right: 2%; }
+    .interests { bottom: 22%; left: 4%; }
+    .links { bottom: 22%; right: 4%; }
+    .goals { bottom: 8%; left: 20%; }
+    .academics { bottom: 8%; right: 20%; }
 }

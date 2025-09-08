@@ -14,7 +14,7 @@ objects.forEach(object => {
 
 // Function to show popup
 function showPopup(content) {
-    popupText.textContent = content;
+    popupText.innerHTML = content;
     popupOverlay.classList.add('active');
     document.body.style.overflow = 'hidden'; // Prevent background scrolling
 }
