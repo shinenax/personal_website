@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shinena's Personal Website</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Welcome to My World</h1>
+        
+        <!-- Central Character -->
+        <div class="center-character">
+            <img src="_ (7).jpeg" alt="Shinena" class="character-img">
+        </div>
+        
+        <!-- Interactive Objects -->
+        <div class="objects-container">
+            <!-- Field Hockey -->
+            <div class="object field-hockey" data-content="Field Hockey: My passion for this amazing sport and all the memories made on the field.">
+                <img src="assets/field-hockey.png" alt="Field Hockey" class="object-img">
+                <span class="object-label">Field Hockey</span>
+            </div>
+            
+            <!-- Work Experience -->
+            <div class="object work" data-content="Work Experience: My professional journey and the skills I've developed along the way.">
+                <img src="assets/work.png" alt="Work Experience" class="object-img">
+                <span class="object-label">Work</span>
+            </div>
+            
+            <!-- Snowboarding -->
+            <div class="object snowboarding" data-content="Snowboarding: Adventures on the slopes and my love for winter sports.">
+                <img src="assets/snowboarding.png" alt="Snowboarding" class="object-img">
+                <span class="object-label">Snowboarding</span>
+            </div>
+            
+            <!-- Volunteering -->
+            <div class="object volunteering" data-content="Volunteering: Giving back to the community and making a positive impact.">
+                <img src="assets/volunteering.png" alt="Volunteering" class="object-img">
+                <span class="object-label">Volunteering</span>
+            </div>
+            
+            <!-- Interests & Hobbies -->
+            <div class="object interests" data-content="Interests & Hobbies: The things that spark my creativity and bring me joy.">
+                <img src="assets/interests.png" alt="Interests & Hobbies" class="object-img">
+                <span class="object-label">Interests</span>
+            </div>
+            
+            <!-- Links -->
+            <div class="object links" data-content="Links: Connect with me on social media and professional platforms.">
+                <img src="assets/links.png" alt="Links" class="object-img">
+                <span class="object-label">Links</span>
+            </div>
+            
+            <!-- Goals -->
+            <div class="object goals" data-content="Goals: My aspirations and the future I'm working towards.">
+                <img src="assets/goals.png" alt="Goals" class="object-img">
+                <span class="object-label">Goals</span>
+            </div>
+            
+            <!-- Academics -->
+            <div class="object academics" data-content="Academics: My educational journey and love for learning.">
+                <img src="assets/academics.png" alt="Academics" class="object-img">
+                <span class="object-label">Academics</span>
+            </div>
+        </div>
+        
+        <!-- Popup Modal -->
+        <div class="popup-overlay" id="popup-overlay">
+            <div class="popup-content">
+                <span class="close-button" id="close-popup">&times;</span>
+                <p class="popup-text" id="popup-text"></p>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+<svg width="300" height="400" xmlns="http://www.w3.org/2000/svg">
+  <rect width="300" height="400" fill="#f0f0f0" stroke="#ddd" stroke-width="2" rx="20"/>
+  <text x="150" y="180" text-anchor="middle" font-family="Arial" font-size="18" fill="#666">Your Character</text>
+  <text x="150" y="210" text-anchor="middle" font-family="Arial" font-size="14" fill="#999">300x400px</text>
+  <circle cx="150" cy="120" r="30" fill="#e0e0e0"/>
+  <rect x="120" y="160" width="60" height="80" fill="#e0e0e0" rx="5"/>
+</svg>
